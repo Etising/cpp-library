@@ -19,9 +19,8 @@ using namespace std;
 //AtCoder Library
 #if __has_include(<atcoder/all>)
 #include <atcoder/all>
-using namespace atcoder;
-using mint = modint998244353;
-using Mint = modint1000000007;
+using mint = atcoder::modint998244353;
+using Mint = atcoder::modint1000000007;
 #endif
 
 //alias
