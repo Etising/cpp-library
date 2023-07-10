@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+constexpr const long long MOD = 998244353;
+constexpr const long long MODM = 1000000007;
+
 long long pow_mod(long long x, long long n, long long mod = 1e18) {
     long long ret = 1;
     while(n > 0) {
@@ -70,11 +73,11 @@ vector<long long> enum_divisors(long long N) {
     vector<long long> res;
     for (long long i = 1; i * i <= N; i++) {
         if (N % i == 0) {
-            res.eb(i);
-            if (N / i != i) res.eb(N / i);
+            res.emplace_back(i);
+            if (N / i != i) res.emplace_back(N / i);
         }
     }
-    sort(along long(res));
+    sort(res.begin(), res.end());
     return res;
 }
 
@@ -88,9 +91,9 @@ vector<pair<long long, long long>> prime_factorize(long long N) {
             ex++;
             N /= a;
         }
-        res.eb(mp(a, ex));
+        res.emplace_back(make_pair(a, ex));
     }
-    if (N != 1) res.eb(mp(N, 1));
+    if (N != 1) res.emplace_back(make_pair(N, 1));
     return res;
 }
 
@@ -112,15 +115,15 @@ vector<long long> getPrimes(long long N) {
     vector<bool> era = Eratosthenes(N);
     vector<long long> primes;
     for(long long i = 2; i <= N; i++) {
-        if(era[i]) primes.eb(i);
+        if(era[i]) primes.emplace_back(i);
     }
     return primes;
 }
 
 //ユークリッド距離
-ld calc_dist(long long x1, long long y1, long long x2, long long y2) {return sqrt(Epow(x2 - x1, 2) + Epow(y2 - y1, 2));}
-ld calc_dist(pair<long long, long long> p1, pair<long long, long long> p2) {return sqrt(Epow(p2.fi - p1.fi, 2) + Epow(p2.se - p1.se, 2));}
+long double calc_dist(long long x1, long long y1, long long x2, long long y2) {return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));}
+long double calc_dist(pair<long long, long long> p1, pair<long long, long long> p2) {return sqrt(pow(p2.first - p1.first, 2) + pow(p2.second - p1.second, 2));}
 
 //ユークリッド距離の2乗
-long long calc_dist2(long long x1, long long y1, long long x2, long long y2) {return Epow(x2 - x1, 2) + Epow(y2 - y1, 2);}
-long long calc_dist2(pair<long long, long long> p1, pair<long long, long long> p2) {return Epow(p2.fi - p1.fi, 2) + Epow(p2.se - p1.se, 2);}
+long long calc_dist2(long long x1, long long y1, long long x2, long long y2) {return pow(x2 - x1, 2) + pow(y2 - y1, 2);}
+long long calc_dist2(pair<long long, long long> p1, pair<long long, long long> p2) {return pow(p2.first - p1.first, 2) + pow(p2.second - p1.second, 2);}
