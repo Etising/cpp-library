@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr const long long MOD = 998244353;
-constexpr const long long MODM = 1000000007;
-
 long long pow_mod(long long x, long long n, long long mod = 1e18) {
     long long ret = 1;
     while(n > 0) {
@@ -15,24 +12,24 @@ long long pow_mod(long long x, long long n, long long mod = 1e18) {
 }
 
 //a ÷ bをmodで割った余り(modは素数) - O(log(mod))
-long long div_mod(long long a, long long b, long long mod) {return (a * pow_mod(b, mod - 2, mod)) % mod;}
+long long div_mod(long long a, long long b, long long mod = 1e18) {return (a * pow_mod(b, mod - 2, mod)) % mod;}
 
 //階乗 - O(n)
-long long factorial(long long n, long long mod) {
+long long factorial(long long n, long long mod = 1e18) {
     long long ans = 1;
     for(long long i = n; i >= 2; i--) ans = (ans * i) % mod;
     return ans;
-}long long factorial(long long n) {return factorial(n, MOD);}
+}
 
 //順列 - O(r)
-long long permutation(long long n, long long r, long long mod) {
+long long permutation(long long n, long long r, long long mod = 1e18) {
     long long ans = 1;
     for(long long i = 0; i < r; i++) ans = (ans * (n - i)) % mod;
     return ans;
-}long long permutation(long long n, long long r) {return permutation(n, r, MOD);}
+}
 
 //組み合わせ(modは素数) - O(min(r, n - r) + log(mod))
-long long combination(long long n, long long r, long long mod) {
+long long combination(long long n, long long r, long long mod = 1e18) {
     r = min(r, n - r);
     if(r == 0) return 1;
     long long up = n;
@@ -42,10 +39,10 @@ long long combination(long long n, long long r, long long mod) {
         down = (down * (i + 1)) % mod;
     }
     return div_mod(up, down, mod);
-}long long combination(long long n, long long r) {return combination(n, r, MOD);}
+}
 
 //nC0~nCrまでの列挙(modは素数) - O(rlog(mod))
-vector<long long> getCombination_vec(long long n, long long r, long long mod) {
+vector<long long> getCombination_vec(long long n, long long r, long long mod = 1e18) {
     vector<long long> ret(r + 1);
     ret[0] = 1;
     long long up = n;
@@ -57,7 +54,7 @@ vector<long long> getCombination_vec(long long n, long long r, long long mod) {
         ret[i + 1] = div_mod(up, down, mod);
     }
     return ret;
-}vector<long long> getCombination_vec(long long n, long long r) {return getCombination_vec(n, r, MOD);}
+}
 
 //素数判定 - O(√N)
 bool is_prime(long long N) {
