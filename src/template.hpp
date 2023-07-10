@@ -90,14 +90,12 @@ template<class T> inline ll count_element(vector<vector<T>> &A, T element) {ll r
 #define fi first
 #define se second
 #define mt make_tuple
-#define tget(t, x) get<x - 1>(t)
 #define lb lower_bound
 #define ub upper_bound
 template<class T> using pq = priority_queue<T>;
 template<class T> using pqmin = priority_queue<T, vector<T>, greater<T>>;
 template<class T, class U> using pqp = priority_queue<pair<T, U>>;
 template<class T, class U> using pqpmin = priority_queue<pair<T, U>, vector<pair<T, U>>, greater<pair<T,U>>>;
-template<class T> inline void cinsert(set<T> &A) {T X; cin >> X; A.insert(X);}
 
 //output
 #define pl() cout << '\n'
@@ -151,10 +149,8 @@ namespace cincout {
 struct exec_time {
     private:
         std::chrono::system_clock::time_point start, end;
-
     public:
         exec_time() : start(std::chrono::system_clock::now()) {}
-
         ll get_time() {
             end = std::chrono::system_clock::now();
             ll ret = (ll)std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
