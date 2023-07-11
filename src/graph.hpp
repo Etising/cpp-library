@@ -10,7 +10,7 @@ vector<int> mx4 = {1, 0, -1, 0}, my4 = {0, -1, 0, 1};
 vector<int> mx8 = {1, 1, 1, 0, -1, -1, -1, 0}, my8 = {1, 0, -1, -1, -1, 0, 1, 1};
 
 //2次元グリッドを隣接リストに変換 - O(Grid.size())
-template<class T> Graph grid_to_adlist(vector<vector<T>> &Grid, int si, int sj, int ei, int ej, vector<int> &mi, vector<int> &mj, T restrict) {
+template<class T> Graph grid_to_adlist(const vector<vector<T>> &Grid, int si, int sj, int ei, int ej, const vector<int> &mi, const vector<int> &mj, T restrict) {
     assert(mi.size() == mj.size());
     Graph ret((ei + 1) * (ej + 1));
     rep1(i, si, ei) {
@@ -31,7 +31,7 @@ template<class T> Graph grid_to_adlist(vector<vector<T>> &Grid, int si, int sj, 
 }
 
 //辺の重みが1の時のstartから各点への距離を求める - O(N + M)
-vector<int> BFS(int start, Graph &G) {
+vector<int> BFS(int start, const Graph &G) {
     vector<int> dist(G.size(), -1);
     queue<int> bfs;
     dist[start] = 0;

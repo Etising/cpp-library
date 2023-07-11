@@ -13,7 +13,7 @@ vector<int> d_to(long long x, int hex) {
 }
 
 //小さい順に配列を用意すること
-long long to_d(vector<int> x, int hex) {
+long long to_d(const vector<int> &x, int hex) {
     long long ret = 0;
     for(int i = 0; i < x.size(); i++) {
         ret += pow(hex, i) * x[i];
