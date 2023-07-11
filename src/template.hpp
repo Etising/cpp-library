@@ -155,3 +155,15 @@ struct exec_time {
             return ret;
         }
 };
+
+void cordp(vector<ll> &A) {
+    vector<ll> sorted;
+    map<ll, vector<int>> idx;
+    rep(i, A.size()) {
+        sorted.eb(A[i]);
+        idx[A[i]].eb(i);
+    }
+    Sort(sorted);
+    sorted.erase(unique(all(sorted)), sorted.end());
+    rep(i, sorted.size()) vfor(idx[sorted[i]], x) A[x] = i;
+}
