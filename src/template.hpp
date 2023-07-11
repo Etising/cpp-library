@@ -71,10 +71,8 @@ constexpr const ld PI = 3.1415926535;
 #define MAXI(v) distance(v.begin(), max_element(all(v)))
 #define Sort(v) sort(all(v))
 #define Rev(v) reverse(all(v))
-template<class T> inline bool vsame(vector<T> &a, vector<T> &b) {return (a.size() == b.size() && equal(all(a), b.begin()));}
-template<class T> inline ll vsum(vector<T> &v) {ll sum = 0; for(T x : v) sum += x; return sum;}
-template<class T> inline ll count_element(vector<T> &A, T element) {ll ret = 0; vfor(A, x) ret += (element == x); return ret;}
-template<class T> inline ll count_element(vector<vector<T>> &A, T element) {ll ret = 0; for(auto vec : A) for(T x : vec) ret += (element == x); return ret;}
+template<class T> inline bool vsame(const vector<T> &a, const vector<T> &b) {return (a.size() == b.size() && equal(all(a), b.begin()));}
+template<class T> inline ll vsum(const vector<T> &v) {ll sum = 0; for(T x : v) sum += x; return sum;}
 
 //iterator macro
 #define all(v) begin(v), end(v)
