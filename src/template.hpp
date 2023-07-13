@@ -54,7 +54,7 @@ constexpr const ld PI = 3.1415926535;
 #define Rep1_3(i, k, n) for(ll i = n; i >= k; i--)
 #define Rep1_4(i, k, n, a) for(ll i = n; i >= k; i -= a) 
 #define Rep1(...) overload4(__VA_ARGS__, Rep1_4, Rep1_3, Rep1_2)(__VA_ARGS__)
-#define vfor(v, x) for(auto x : v)
+#define vfor(x, v) for(auto x : v)
 #define mfor(map) for(auto &[key, value] : map)
 
 //vector macro
@@ -164,5 +164,5 @@ void cordp(vector<ll> &A) {
     }
     Sort(sorted);
     sorted.erase(unique(all(sorted)), sorted.end());
-    rep(i, sorted.size()) vfor(idx[sorted[i]], x) A[x] = i;
+    rep(i, sorted.size()) vfor(x, idx[sorted[i]]) A[x] = i;
 }
