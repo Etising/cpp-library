@@ -96,6 +96,7 @@ template<class T, class U> using pqpmin = priority_queue<pair<T, U>, vector<pair
 
 //output
 #define pl() cout << '\n'
+#define ifl(i, k) " \n"[i == k]
 template<class T> inline void print(const T& a) {cout << a;}
 inline void printl() {}
 template<class T> inline void printl(const T& t) {print(t); pl();}
