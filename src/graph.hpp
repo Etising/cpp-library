@@ -33,7 +33,7 @@ template<class T> Graph grid_to_adlist(const vector<vector<T>> &Grid, int si, in
 }
 
 //辺の重みが1の時のstartから各点への距離を求める - O(N + M)
-vector<int> BFS(int start, const Graph &G) {
+vector<int> BFS(int start, const graph &G) {
     vector<int> dist(G.size(), -1);
     queue<int> bfs;
     dist[start] = 0;
@@ -47,5 +47,31 @@ vector<int> BFS(int start, const Graph &G) {
             bfs.push(next);
         }
     }
+    return dist;
+}
+
+vector<int> dij(int start, const Graph &G) {
+
+    int N = G.size();
+    vector<bool> hold(N, false);
+    vector<int> dist(N, INF);
+    dist[start] = 0;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> que;
+    que.push(make_pair(dist[start], start));
+    while(!que.empty()) {
+        int v = que.top().second; que.pop();
+
+        if(hold[v]) continue;
+        hold[v] = true;
+        for(auto next : G[v]) {
+            int nv = next.second;
+            int cost = next.first;
+            if(chmin(dist[nv], dist[v] + cost)) 
+            que.push(make_pair(dist[nv], nv));
+        }
+    }
+
+    for(int i = 0; i < N; i++) if(dist[i] == INF) dist[i] = -1;
+    
     return dist;
 }
