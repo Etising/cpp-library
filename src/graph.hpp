@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-using Graph = vector<vector<int>>;
+using graph = vector<vector<int>>;
 #define affix(v, a, b) v[a].emplace_back(b)
+using Graph = vector<vector<pair<int, int>>>;
+#define Affix(v, a, b, c) v[a].emplace_back(make_pair(c, b)f)
 
 vector<int> mi4 = {0, -1, 0, 1}, mj4 = {1, 0, -1, 0};
 vector<int> mi8 = {-1, 0, 1, 1, 1, 0, -1, -1}, mj8 = {1, 1, 1, 0, -1, -1, -1, 0};
