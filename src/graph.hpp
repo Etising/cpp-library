@@ -4,7 +4,7 @@ using namespace std;
 using graph = vector<vector<int>>;
 #define affix(v, a, b) v[a].emplace_back(b)
 using Graph = vector<vector<pair<int, int>>>;
-#define Affix(v, a, b, c) v[a].emplace_back(make_pair(c, b)f)
+#define Affix(v, a, b, c) v[a].emplace_back(make_pair(c, b))
 
 vector<int> mi4 = {0, -1, 0, 1}, mj4 = {1, 0, -1, 0};
 vector<int> mi8 = {-1, 0, 1, 1, 1, 0, -1, -1}, mj8 = {1, 1, 1, 0, -1, -1, -1, 0};
@@ -12,7 +12,7 @@ vector<int> mx4 = {1, 0, -1, 0}, my4 = {0, -1, 0, 1};
 vector<int> mx8 = {1, 1, 1, 0, -1, -1, -1, 0}, my8 = {1, 0, -1, -1, -1, 0, 1, 1};
 
 //2次元グリッドを隣接リストに変換 - O(Grid.size())
-template<class T> Graph grid_to_adlist(const vector<vector<T>> &Grid, int si, int sj, int ei, int ej, const vector<int> &mi, const vector<int> &mj, T restrict) {
+template<class T> graph grid_to_adlist(const vector<vector<T>> &Grid, int si, int sj, int ei, int ej, const vector<int> &mi, const vector<int> &mj, T restrict) {
     assert(mi.size() == mj.size());
     Graph ret((ei + 1) * (ej + 1));
     rep1(i, si, ei) {
