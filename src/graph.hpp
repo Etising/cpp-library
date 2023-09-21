@@ -14,7 +14,7 @@ vector<int> mx8 = {1, 1, 1, 0, -1, -1, -1, 0}, my8 = {1, 0, -1, -1, -1, 0, 1, 1}
 //2次元グリッドを隣接リストに変換 - O(Grid.size())
 template<class T> graph grid_to_adlist(const vector<vector<T>> &Grid, int si, int sj, int ei, int ej, const vector<int> &mi, const vector<int> &mj, T restrict) {
     assert(mi.size() == mj.size());
-    Graph ret((ei + 1) * (ej + 1));
+    graph ret((ei + 1) * (ej + 1));
     rep1(i, si, ei) {
         rep1(j, sj, ej) {
             if(Grid[i][j] == restrict) continue;
@@ -51,7 +51,6 @@ vector<int> BFS(int start, const graph &G) {
 }
 
 vector<int> dij(int start, const Graph &G) {
-
     int N = G.size();
     vector<bool> hold(N, false);
     vector<int> dist(N, INF);
@@ -60,7 +59,6 @@ vector<int> dij(int start, const Graph &G) {
     que.push(make_pair(dist[start], start));
     while(!que.empty()) {
         int v = que.top().second; que.pop();
-
         if(hold[v]) continue;
         hold[v] = true;
         for(auto next : G[v]) {
