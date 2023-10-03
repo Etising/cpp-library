@@ -172,3 +172,9 @@ void cordp(vector<ll> &A) {
     sorted.erase(unique(all(sorted)), sorted.end());
     rep(i, sorted.size()) vfor(x, idx[sorted[i]]) A[x] = i;
 }
+
+vector<vector<char>> roll(const vector<vector<char>> &A, int H, int W) {
+    vector<vector<char>> ret(W, vector<char>(H));
+    rep(i, H) rep(j, W) ret[j][H - i - 1] = A[i][j];
+    return ret;
+}
