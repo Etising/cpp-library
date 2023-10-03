@@ -93,6 +93,7 @@ template<class T> inline ll vsum(const vector<T> &v) {ll sum = 0; for(T x : v) s
 #define mt make_tuple
 #define lb lower_bound
 #define ub upper_bound
+template<class T, class U> using um = unordered_map<T, U>;
 template<class T> using pq = priority_queue<T>;
 template<class T> using pqmin = priority_queue<T, vector<T>, greater<T>>;
 template<class T, class U> using pqp = priority_queue<pair<T, U>>;
