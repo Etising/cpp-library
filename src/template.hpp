@@ -131,50 +131,10 @@ template<class T, class U> inline bool check_bit(T tar, U bit) {return ((tar & E
 template<class T> inline bool overflow_if_add(T a, T b) {return (std::numeric_limits<T>::max() - a) < b;}
 template<class T> inline bool overflow_if_mul(T a, T b) {return (std::numeric_limits<T>::max() / a) < b;}
 
-//pair-sort
-template<class T, class U> inline bool pud(pair<T, U>& left, pair<T, U>& right) {
-    if (left.first == right.first) return right.second < left.second;
-    else return left.first  < right.first;
-}
-template<class T, class U> inline bool pdu(pair<T, U>& left, pair<T, U>& right) {
-    if (left.first == right.first) return left.second < right.second;
-    else return right.first < left.first;
-}
-
 namespace cincout {
     void Etising() {
         ios::sync_with_stdio(false);
         cin.tie(nullptr);
         cout << fixed << setprecision(15);
     }
-}
-
-struct exec_time {
-    private:
-        std::chrono::system_clock::time_point start, end;
-    public:
-        exec_time() : start(std::chrono::system_clock::now()) {}
-        ll get_time() {
-            end = std::chrono::system_clock::now();
-            ll ret = (ll)std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-            return ret;
-        }
-};
-
-void cordp(vector<ll> &A) {
-    vector<ll> sorted;
-    map<ll, vector<int>> idx;
-    rep(i, A.size()) {
-        sorted.eb(A[i]);
-        idx[A[i]].eb(i);
-    }
-    Sort(sorted);
-    sorted.erase(unique(all(sorted)), sorted.end());
-    rep(i, sorted.size()) vfor(x, idx[sorted[i]]) A[x] = i;
-}
-
-vector<vector<char>> roll(const vector<vector<char>> &A, int H, int W) {
-    vector<vector<char>> ret(W, vector<char>(H));
-    rep(i, H) rep(j, W) ret[j][H - i - 1] = A[i][j];
-    return ret;
 }
